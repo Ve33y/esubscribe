@@ -50,6 +50,8 @@ input {
 }
 
 .broadcast-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
   max-width: 1100px;
   background-color: white;
   margin: auto;
@@ -57,14 +59,21 @@ input {
   padding: 10px;
 }
 
-.broadcast-container h1 {
+h1 {
   margin: 10px 0 0 0;
   padding: 15px;
   color: #7a9cb6;
 }
 
 .broadcast-sidebar {
-  display: flex;
+  /* display: grid;
+  flex-direction: column; */
+  padding: 5px;
+}
+
+.sent-messages {
+  color: #7a9cb6;
+  display: block;
   flex-direction: column;
   padding: 5px;
 }

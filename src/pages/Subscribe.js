@@ -23,7 +23,7 @@ export const Subscribe = () => {
         }
       );
       if (res.status !== 200) throw new Error(`Request failed: ${res.status}`); 
-}
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
