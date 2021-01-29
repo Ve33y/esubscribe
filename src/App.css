@@ -1,0 +1,41 @@
+body {
+  background-color: #7a9cb6;
+  color: #dce6e4;
+}
+
+.subscribe-container {
+  width: 360px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 10px;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.form-field-btn{
+  background-color: #7a9cb6;
+  color: whitesmoke;
+  border: none;
+  border-radius: 5%;
+  padding: 15px;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-field {
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 16px;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+
+input {
+  background: #f2f2f2;
+}
