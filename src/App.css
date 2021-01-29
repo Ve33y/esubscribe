@@ -17,7 +17,7 @@ body {
   padding: 5px;
 }
 
-.form-field-btn{
+.form-field-btn {
   background-color: #7a9cb6;
   color: whitesmoke;
   border: none;
@@ -35,7 +35,36 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.tetxarea-msg {
+  height: 200px;
+  width: 300px;
+  margin: 10px 0 10px 0;
+  padding: 15px;
+  font-size: 16px;
+  border: solid whitesmoke;
+  font-family: "Roboto", sans-serif;
+}
 
 input {
   background: #f2f2f2;
+}
+
+.broadcast-container {
+  max-width: 1100px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 10px;
+}
+
+.broadcast-container h1 {
+  margin: 10px 0 0 0;
+  padding: 15px;
+  color: #7a9cb6;
+}
+
+.broadcast-sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }

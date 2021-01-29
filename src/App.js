@@ -5,6 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import { Subscribe } from './pages/Subscribe';
+import { Broadcast } from './pages/Broadcast';
 import './App.css';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route path="/broadcast">
+          <Broadcast />
         </Route>
         <Route path="/">
           <Subscribe />
@@ -20,6 +22,5 @@ const App = () => {
     </Router>
   )
 }
-
 
 export default App;
