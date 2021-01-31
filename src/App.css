@@ -60,14 +60,11 @@ input {
 }
 
 h1 {
-  margin: 10px 0 0 0;
-  padding: 15px;
+  padding: 5px;
   color: #7a9cb6;
 }
 
 .broadcast-sidebar {
-  /* display: grid;
-  flex-direction: column; */
   padding: 5px;
 }
 
@@ -76,4 +73,20 @@ h1 {
   display: block;
   flex-direction: column;
   padding: 5px;
+  overflow-y: scroll;
+}
+
+/* .message-container {
+  border: solid;
+} */
+
+.singleMsg {
+  border: solid;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+  margin: 2px;
+}
+
+ul {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }

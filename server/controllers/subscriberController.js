@@ -2,7 +2,6 @@ const subscriberController = {};
 const db = require('../model/subscriberModel');
 const nodemailer = require('nodemailer');
 
-
 subscriberController.postSubscriber = (req, res, next) => {
   const { subscriber, topic } = req.body;
   const params = [subscriber, topic]

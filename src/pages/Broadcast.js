@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export const Broadcast = () => {
   const [values, setValues] = useState({ topic: '', message: '' });
-  const [sentMessage, setSentMessage] = useState({ topic: '', message: '' });
+  const [sentMessage, setSentMessage] = useState([{ topic: '', message: '' }]);
 
   const setVal = name => {
     return ({ target: { value } }) => setValues(oldValues => ({ ...oldValues, [name]: value}))
@@ -12,9 +12,10 @@ export const Broadcast = () => {
     e.preventDefault();
     try {
       await sendSavePopulate();
-      setSentMessage(values);
+      
       setValues({topic: '', message: ''});
     } catch (e) {
+      setSentMessage([...sentMessage, {topic: '', message: ''}]);
       alert(`Message send failed! ${e.message}`);
     }
   }
@@ -27,15 +28,29 @@ export const Broadcast = () => {
         body: JSON.stringify(values),
       }
     );
+    setSentMessage([...sentMessage, values]);
     if (res.status !== 200) throw new Error(`Request failed: ${res.status}`); 
   }
 
+  const messagesRef = useRef(null)
+
+  const scrollToBottom = () => {
+    if(messagesRef.current){
+      messagesRef.current.scrollIntoView({ behavior: "smooth" });
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [sentMessage]);
+
   return (
     <div>
-    <h1>Send a message</h1>
     <div className='broadcast-container'>
         <div className='broadcast-sidebar'>
           <form id='broadcast-form' className='broadcast-form'>
+            <h1>Send a message</h1>
             <input
               id='topic'
               type='text'
@@ -54,15 +69,27 @@ export const Broadcast = () => {
               value={values.message} 
               onChange={setVal('message')} 
               required
-              autocomplete='off'
+              autoComplete='off'
             />
             <br />
             <button className='form-field-btn' type='submit' onClick={handleSend}>Send</button>
           </form>
         </div>
-        <div class='sent-messages'>
-          <ul>{sentMessage.topic}</ul>
-          <ul>{sentMessage.message}</ul>
+        <div className='sent-messages'>
+          <h1>Broadcast History</h1> 
+          <div className='message-container'>
+            {sentMessage.map((msg, i) => {
+              if(msg.topic && msg.message){
+                return (
+                  <div className='singleMsg' key={`${msg.topic}${i}`}>                
+                      <ul>Topic: {msg.topic}</ul>
+                      <ul>Message: {msg.message}</ul>
+                  </div>
+                  )
+              }})
+            }
+            <div ref={messagesRef}></div>
+          </div>
         </div>
     </div>
   </div>
