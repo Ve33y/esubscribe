@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode development",
-    "dev": "webpack serve",
-    "start": "nodemon server/server.js",
+    "dev": "NODE_ENV=development nodemon server/server.js & webpack serve",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ve33y",

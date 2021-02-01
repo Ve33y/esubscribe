@@ -11,8 +11,7 @@ export const Broadcast = () => {
   const handleSend = async (e) => {
     e.preventDefault();
     try {
-      await sendSavePopulate();
-      
+      await sendSavePopulate();   
       setValues({topic: '', message: ''});
     } catch (e) {
       setSentMessage([...sentMessage, {topic: '', message: ''}]);
@@ -29,7 +28,7 @@ export const Broadcast = () => {
       }
     );
     setSentMessage([...sentMessage, values]);
-    if (res.status !== 200) throw new Error(`Request failed: ${res.status}`); 
+    if (res.status !== 200) throw new Error(`Request failed: ${res.status}`);
   }
 
   const messagesRef = useRef(null)
@@ -84,11 +83,11 @@ export const Broadcast = () => {
                   <div className='singleMsg' key={`${msg.topic}${i}`}>                
                       <ul>Topic: {msg.topic}</ul>
                       <ul>Message: {msg.message}</ul>
+                      <div ref={messagesRef}></div>
                   </div>
                   )
               }})
             }
-            <div ref={messagesRef}></div>
           </div>
         </div>
     </div>

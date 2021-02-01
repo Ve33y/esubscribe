@@ -11,8 +11,12 @@ app.post('/api/subscribe', subscriberController.postSubscriber, (req, res) => {
   return res.status(200).send('success');
 });
 
-app.post('/api/broadcast', subscriberController.postBroadcast, subscriberController.sendMail, (req, res) => {
-  return res.status(200).send('success');
+app.post('/api/broadcast', 
+  subscriberController.postBroadcast, 
+  subscriberController.getAllSubscribers, 
+  subscriberController.sendMail, 
+  (req, res) => {
+  return res.status(200).json(res.locals.subscribers);
 });
 
 // catch-all route handler for any requests to an unknown route

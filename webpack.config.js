@@ -26,9 +26,12 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     hot: true,
     historyApiFallback: true,
+    inline: true,
+    headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/api/*': {
         target: 'http://localhost:3000',
+        secure: false
       }
     }
   }
